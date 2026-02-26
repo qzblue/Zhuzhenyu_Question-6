@@ -2,6 +2,7 @@ FROM maven:3.8-eclipse-temurin-8 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
+RUN mvn install:install-file -Dfile=src/main/resources/WEB-INF/lib/jave-1.0.2.jar -DgroupId=lt.jave -DartifactId=jave -Dversion=1.0.2 -Dpackaging=jar
 RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:8-jre
