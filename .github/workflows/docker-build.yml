@@ -27,8 +27,10 @@ jobs:
           ref: master
           path: ukefu
 
-      - name: Copy Dockerfile to Ukefu
-        run: cp infra/Dockerfile ukefu/Dockerfile
+      - name: Copy Dockerfile, Settings, and Kubernetes manifests
+        run: |
+          cp Dockerfile ukefu/
+          cp settings.xml ukefu/
 
       - name: Log in to the Container registry
         uses: docker/login-action@v3
