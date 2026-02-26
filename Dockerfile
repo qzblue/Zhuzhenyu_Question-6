@@ -1,10 +1,10 @@
-FROM maven:3.6.3-jdk-8 AS build
+FROM maven:3.8-eclipse-temurin-8 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-FROM eclipse-temurin:8-jre-alpine
+FROM eclipse-temurin:8-jre
 LABEL org.opencontainers.image.source="https://github.com/qzblue/Zhuzhenyu_Question-6"
 WORKDIR /app
 COPY --from=build /app/target/webim-*.war /app/app.war
