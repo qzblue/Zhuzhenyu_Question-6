@@ -48,6 +48,8 @@ jobs:
           file: ./ukefu/Dockerfile
           push: true
           tags: ghcr.io/${{ env.owner }}/ukefu:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/qzblue/Zhuzhenyu_Question-6
 
       - name: Retag and push Elasticsearch
         run: |
