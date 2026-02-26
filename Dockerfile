@@ -4,7 +4,7 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-FROM openjdk:8-jre-alpine
+FROM eclipse-temurin:8-jre-alpine
 LABEL org.opencontainers.image.source="https://github.com/qzblue/Zhuzhenyu_Question-6"
 WORKDIR /app
 COPY --from=build /app/target/webim-*.war /app/app.war
